@@ -2,6 +2,13 @@ import React, { PureComponent } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
 
 class CreateForm extends PureComponent {
   constructor() {
@@ -28,13 +35,21 @@ class CreateForm extends PureComponent {
         input = (<TextField/>);
         break;
       case 'textarea':
-        input = (<textarea/>);
+        input = (<TextField multiline/>);
         break;
       case 'checkbox':
         input = (<input type="checkbox"/>);
         break;
       case 'radio':
-        input = (<input type="radio"/>);
+        input = ( 
+          <FormControl component="fieldset">
+            <RadioGroup>
+              <FormControlLabel value="female" control={<Radio />} label="Female" />
+              <FormControlLabel value="male" control={<Radio />} label="Male" />
+              <FormControlLabel value="other" control={<Radio />} label="Other" />
+            </RadioGroup>
+          </FormControl>
+        );
         break;
       case 'select':
         input = (<select/>);
@@ -43,7 +58,7 @@ class CreateForm extends PureComponent {
         input = (<input type="file"/>);
         break;
       default:
-        input = (<input type="text"/>);
+        input = (<TextField/>);
     }
 
     return (
@@ -66,7 +81,9 @@ class CreateForm extends PureComponent {
             placeholder="filed name"
             name="fielddName"
           />
-          <button>Add</button>
+          <Fab color="primary" aria-label="Add">
+            <AddIcon />
+          </Fab>
         </section>
         <form>
           <h1>Preview</h1>

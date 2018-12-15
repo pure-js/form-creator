@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import './App.css';
+import Button from '@material-ui/core/Button';
 
 import CreateForm from './components/CreateForm/CreateForm';
 
@@ -26,7 +27,11 @@ class App extends PureComponent {
     return (
       <div className="App">
         <header className="App-header">
-          <button onClick={this.goToCreatingForms}>Create form</button>
+          <Button
+            variant="contained"
+            onClick={this.goToCreatingForms}
+            color="primary"
+          >Create new form</Button>
           {create}
         </header>
       </div>
