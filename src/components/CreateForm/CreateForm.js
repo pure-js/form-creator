@@ -1,4 +1,7 @@
 import React, { PureComponent } from 'react';
+import TextField from '@material-ui/core/TextField';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 class CreateForm extends PureComponent {
   constructor() {
@@ -22,7 +25,7 @@ class CreateForm extends PureComponent {
     let input;
     switch(this.state.fieldType) {
       case 'input':
-        input = (<input type="text"/>);
+        input = (<TextField/>);
         break;
       case 'textarea':
         input = (<textarea/>);
@@ -46,16 +49,19 @@ class CreateForm extends PureComponent {
     return (
       <div>
         <section>
-          <select onChange={this.handleInputChange} name="fieldType">
-            <option value="input">Input</option>
-            <option value="textarea">Textarea</option>
-            <option value="checkbox">Checkbox</option>
-            <option value="radio">Radio</option>
-            <option value="select">Select</option>
-            <option value="file">File</option>
-          </select>
-          <input
-            type="text"
+          <Select
+            onChange={this.handleInputChange}
+            value={this.state.fieldType}
+            name="fieldType"
+          >
+            <MenuItem value="input">Input</MenuItem>
+            <MenuItem value="textarea">Textarea</MenuItem>
+            <MenuItem value="checkbox">Checkbox</MenuItem>
+            <MenuItem value="radio">Radio</MenuItem>
+            <MenuItem value="select">Select</MenuItem>
+            <MenuItem value="file">File</MenuItem>
+          </Select>
+          <TextField
             onChange={this.handleInputChange}
             placeholder="filed name"
             name="fielddName"
@@ -65,8 +71,8 @@ class CreateForm extends PureComponent {
         <form>
           <h1>Preview</h1>
           <label>
-            {input}
             {this.state.fielddName}
+            {input}
           </label>
         </form>
       </div>
