@@ -1,8 +1,8 @@
 import React from 'react';
 import { createStore, combineReducers } from 'redux';
-import reducers from './reducers/reducers.js';
+import reducers from '../reducers/reducers.js';
 
-const store = createStore(
+export const store = createStore(
   combineReducers({
     state: reducers,
   }),
