@@ -41,7 +41,7 @@ class CreateForm extends PureComponent {
         input = (<input type="checkbox"/>);
         break;
       case 'radio':
-        input = ( 
+        input = (
           <FormControl component="fieldset">
             <RadioGroup>
               <FormControlLabel value="female" control={<Radio />} label="Female" />
