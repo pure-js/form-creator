@@ -5,10 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
+import FieldsPreview from '../FieldsPreview/FieldsPreview';
 
 class CreateForm extends PureComponent {
   constructor() {
@@ -29,37 +26,16 @@ class CreateForm extends PureComponent {
   }
 
   render() {
-    let input;
-    switch(this.state.fieldType) {
-      case 'input':
-        input = (<TextField/>);
-        break;
-      case 'textarea':
-        input = (<TextField multiline/>);
-        break;
-      case 'checkbox':
-        input = (<input type="checkbox"/>);
-        break;
-      case 'radio':
-        input = (
-          <FormControl component="fieldset">
-            <RadioGroup>
-              <FormControlLabel value="female" control={<Radio />} label="Female" />
-              <FormControlLabel value="male" control={<Radio />} label="Male" />
-              <FormControlLabel value="other" control={<Radio />} label="Other" />
-            </RadioGroup>
-          </FormControl>
-        );
-        break;
-      case 'select':
-        input = (<select/>);
-        break;
-      case 'file':
-        input = (<input type="file"/>);
-        break;
-      default:
-        input = (<TextField/>);
-    }
+    const data = [
+      {
+        type: 'input',
+        name: 'KEk',
+      },
+      {
+        type: 'checkbox',
+        name: 'Ziz'
+      }
+    ]
 
     return (
       <div>
@@ -87,10 +63,7 @@ class CreateForm extends PureComponent {
         </section>
         <form>
           <h1>Preview</h1>
-          <label>
-            {this.state.fielddName}
-            {input}
-          </label>
+          <FieldsPreview fieldsList={data}/>
         </form>
       </div>
     );
