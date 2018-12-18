@@ -7,7 +7,52 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 
+import Grid from '@material-ui/core/Grid';
+
 class FieldsPreview extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      fields: [],
+    }
+
+    const data = [
+      {
+        type: 'input',
+        name: 'Do you have any questions?',
+        id: 1,
+      },
+      {
+        type: 'checkbox',
+        name: 'Ziz',
+        id: 2,
+      }
+    ];
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.newField !== prevProps.newField) {
+      const fieldsCopy = this.state.fields.slice();
+
+      fieldsCopy.push({
+        type: this.props.newField,
+        id: Math.random().toString(36).substr(2, 9),
+      });
+
+      this.setState({
+        fields: fieldsCopy,
+      });
+    }
+  }
+
+  handleInputChange(event) {
+    const { target } = event;
+    this.setState({
+      [target.name]: target.value,
+    });
+  }
+
   render() {
     function getFieldByType(type) {
       let input;
@@ -44,16 +89,20 @@ class FieldsPreview extends Component {
       return input;
     }
 
-    const bmb = this.props.fieldsList.map((field) => 
-      <label>
-        {field.name}
-        {getFieldByType(field.type)}
-      </label>
+    const bmb = this.state.fields.map((field) => 
+      <React.Fragment key={field.id}>
+        <Grid item xs={2}>
+          <TextField value={field.name}/>
+        </Grid>
+        <Grid item xs={10} key={field.id}>
+          {getFieldByType(field.type)}
+        </Grid>
+      </React.Fragment>
     );
     return (
-      <div>
+      <Grid container>
         {bmb}
-      </div>
+      </Grid>
     )
   }
 }

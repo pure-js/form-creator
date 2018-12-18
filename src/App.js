@@ -26,14 +26,12 @@ class App extends PureComponent {
     }
     return (
       <div className="App">
-        <header className="App-header">
-          <Button
-            variant="contained"
-            onClick={this.goToCreatingForms}
-            color="primary"
-          >Create new form</Button>
-          {create}
-        </header>
+        <Button
+          variant="contained"
+          onClick={this.goToCreatingForms}
+          color="primary"
+        >Create new form</Button>
+        {create}
       </div>
     );
   }

@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
-import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+
+import Grid from '@material-ui/core/Grid';
 
 import FieldsPreview from '../FieldsPreview/FieldsPreview';
 
@@ -26,20 +27,9 @@ class CreateForm extends PureComponent {
   }
 
   render() {
-    const data = [
-      {
-        type: 'input',
-        name: 'KEk',
-      },
-      {
-        type: 'checkbox',
-        name: 'Ziz'
-      }
-    ]
-
     return (
-      <div>
-        <section>
+      <Grid container spacing={24}>
+        <Grid item xs={12}>
           <Select
             onChange={this.handleInputChange}
             value={this.state.fieldType}
@@ -52,20 +42,17 @@ class CreateForm extends PureComponent {
             <MenuItem value="select">Select</MenuItem>
             <MenuItem value="file">File</MenuItem>
           </Select>
-          <TextField
-            onChange={this.handleInputChange}
-            placeholder="filed name"
-            name="fielddName"
-          />
           <Fab color="primary" aria-label="Add">
             <AddIcon />
           </Fab>
-        </section>
-        <form>
-          <h1>Preview</h1>
-          <FieldsPreview fieldsList={data}/>
-        </form>
-      </div>
+        </Grid>
+        <Grid item xs={12}>
+          <form>
+            <h1>Preview</h1>
+            <FieldsPreview newField={this.state.fieldType}/>
+          </form>
+        </Grid>
+      </Grid>
     );
   }
 }
