@@ -13,10 +13,16 @@ class CreateForm extends PureComponent {
     super();
     this.state = {
       fieldType: 'input',
-      fielddName: '',
     }
 
-    this.handleInputChange =  this.handleInputChange.bind(this);
+    this.field = '';
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.addField = this.addField.bind(this);
+  }
+
+  addField() {
+    this.field = this.state.fieldType;
   }
 
   handleInputChange(event) {
@@ -42,14 +48,14 @@ class CreateForm extends PureComponent {
             <MenuItem value="select">Select</MenuItem>
             <MenuItem value="file">File</MenuItem>
           </Select>
-          <Fab color="primary" aria-label="Add">
+          <Fab color="primary" aria-label="Add" onClick={this.addField}>
             <AddIcon />
           </Fab>
         </Grid>
         <Grid item xs={12}>
           <form>
             <h1>Preview</h1>
-            <FieldsPreview newField={this.state.fieldType}/>
+            <FieldsPreview newField={this.field}/>
           </form>
         </Grid>
       </Grid>

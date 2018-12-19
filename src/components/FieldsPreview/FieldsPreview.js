@@ -16,19 +16,6 @@ class FieldsPreview extends Component {
     this.state = {
       fields: [],
     }
-
-    const data = [
-      {
-        type: 'input',
-        name: 'Do you have any questions?',
-        id: 1,
-      },
-      {
-        type: 'checkbox',
-        name: 'Ziz',
-        id: 2,
-      }
-    ];
   }
 
   componentDidUpdate(prevProps) {
