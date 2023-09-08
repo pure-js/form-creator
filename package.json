@@ -8,6 +8,7 @@
     "preinstall": "npx only-allow pnpm",
     "start": "vite dev",
     "build": "vite build",
+    "preview": "vite preview",
     "test": "react-scripts test",
     "predeploy": "pnpm run build",
     "deploy": "gh-pages -d build"
