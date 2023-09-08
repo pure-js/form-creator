@@ -20,7 +20,6 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install && pnpm install -g @lhci/cli@0.12.x
       - run: pnpm run build
-      - run: pnpm run build2
       - run: lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
