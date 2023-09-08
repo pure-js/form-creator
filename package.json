@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://pure-js.github.io/form-creator",
   "dependencies": {
+    "preinstall": "npx only-allow pnpm",
     "@material-ui/core": "^3.6.2",
     "@material-ui/icons": "^3.0.1",
     "react": "^16.6.3",
