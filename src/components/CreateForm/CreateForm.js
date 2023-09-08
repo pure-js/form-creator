@@ -13,7 +13,7 @@ class CreateForm extends PureComponent {
     super();
     this.state = {
       fieldType: 'input',
-    }
+    };
 
     this.field = '';
 
@@ -55,7 +55,7 @@ class CreateForm extends PureComponent {
         <Grid item xs={12}>
           <form>
             <h1>Preview</h1>
-            <FieldsPreview newField={this.field}/>
+            <FieldsPreview newField={this.field} />
           </form>
         </Grid>
       </Grid>

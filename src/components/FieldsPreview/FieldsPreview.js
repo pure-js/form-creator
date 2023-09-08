@@ -15,7 +15,7 @@ class FieldsPreview extends Component {
 
     this.state = {
       fields: [],
-    }
+    };
   }
 
   componentDidUpdate(prevProps) {
@@ -43,54 +43,62 @@ class FieldsPreview extends Component {
   render() {
     function getFieldByType(type) {
       let input;
-      switch(type) {
+      switch (type) {
         case 'input':
-          input = (<TextField/>);
+          input = <TextField />;
           break;
         case 'textarea':
-          input = (<TextField multiline/>);
+          input = <TextField multiline />;
           break;
         case 'checkbox':
-          input = (<input type="checkbox"/>);
+          input = <input type="checkbox" />;
           break;
         case 'radio':
           input = (
             <FormControl component="fieldset">
               <RadioGroup>
-                <FormControlLabel value="female" control={<Radio />} label="Female" />
-                <FormControlLabel value="male" control={<Radio />} label="Male" />
-                <FormControlLabel value="other" control={<Radio />} label="Other" />
+                <FormControlLabel
+                  value="female"
+                  control={<Radio />}
+                  label="Female"
+                />
+                <FormControlLabel
+                  value="male"
+                  control={<Radio />}
+                  label="Male"
+                />
+                <FormControlLabel
+                  value="other"
+                  control={<Radio />}
+                  label="Other"
+                />
               </RadioGroup>
             </FormControl>
           );
           break;
         case 'select':
-          input = (<select/>);
+          input = <select />;
           break;
         case 'file':
-          input = (<input type="file"/>);
+          input = <input type="file" />;
           break;
         default:
-          input = (<TextField/>);
+          input = <TextField />;
       }
       return input;
     }
 
-    const bmb = this.state.fields.map((field) => 
+    const bmb = this.state.fields.map((field) => (
       <React.Fragment key={field.id}>
         <Grid item xs={2}>
-          <TextField value={field.name}/>
+          <TextField value={field.name} />
         </Grid>
         <Grid item xs={10} key={field.id}>
           {getFieldByType(field.type)}
         </Grid>
       </React.Fragment>
-    );
-    return (
-      <Grid container>
-        {bmb}
-      </Grid>
-    )
+    ));
+    return <Grid container>{bmb}</Grid>;
   }
 }
 

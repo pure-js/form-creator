@@ -1,0 +1,9 @@
+# Ignore artifacts:
+build
+coverage
+
+# TypeScript configuration
+tsconfig.json
+
+# PNPM package manager
+pnpm-lock.yaml
