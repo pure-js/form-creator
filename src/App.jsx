@@ -9,7 +9,7 @@ class App extends PureComponent {
     super();
     this.state = {
       create: false,
-    }
+    };
     this.goToCreatingForms = this.goToCreatingForms.bind(this);
   }
 
@@ -22,7 +22,7 @@ class App extends PureComponent {
   render() {
     let create;
     if (this.state.create) {
-      create = (<CreateForm/>);
+      create = <CreateForm />;
     }
     return (
       <div className="App">
@@ -30,7 +30,9 @@ class App extends PureComponent {
           variant="contained"
           onClick={this.goToCreatingForms}
           color="primary"
-        >Create new form</Button>
+        >
+          Create new form
+        </Button>
         {create}
       </div>
     );

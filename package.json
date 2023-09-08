@@ -1,24 +1,32 @@
 {
-  "name": "form-creator",
+  "name": "form-builder",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://pure-js.github.io/form-creator",
+  "type": "module",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "start": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "react-scripts test",
+    "predeploy": "pnpm run build",
+    "deploy": "gh-pages -d build"
+  },
   "dependencies": {
     "@material-ui/core": "^3.6.2",
     "@material-ui/icons": "^3.0.1",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-redux": "^6.0.0",
-    "react-scripts": "2.1.1",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "vite": "^4.4.9"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+  "devDependencies": {
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "gh-pages": "^2.0.1",
+    "prettier": "3.0.3",
+    "typescript": "^5.2.2"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,8 +36,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "gh-pages": "^2.0.1"
-  }
+  ]
 }
