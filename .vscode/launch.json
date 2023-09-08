@@ -12,8 +12,7 @@
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
-      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/react-scripts",
-      "protocol": "inspector"
+      "runtimeExecutable": "pnpm",
     }
   ]
 }

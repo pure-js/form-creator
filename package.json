@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "start": "vite start",
+    "start": "vite dev",
     "build": "vite build",
     "test": "react-scripts test",
     "predeploy": "pnpm run build",
@@ -18,7 +18,6 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-redux": "^6.0.0",
-    "react-scripts": "2.1.1",
     "redux": "^4.0.1",
     "vite": "^4.4.9"
   },
